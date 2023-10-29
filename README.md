@@ -18,7 +18,7 @@ Install as above and use the `fn-tester.js` file found in the node_modules direc
 
 ## Usage
 
-fn-tester is a simple as it gets. It has only three options and one method to use. Unlike many test double libraries, fn-tester requires running functions indirectly by using a variation of the Command design pattern, which is necessary to intercept all function calls and preserve the value of "this".
+fn-tester is a simple as it gets. It has only three options and one method to use. fn-tester requires running functions indirectly by using a variation of the Command design pattern, which is necessary to intercept all function calls and preserve the value of "this".
 
 ```js
 var fn = require('fn-tester');
