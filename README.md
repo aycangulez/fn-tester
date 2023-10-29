@@ -1,27 +1,27 @@
-fn-test is a tiny utility to record function calls and define test doubles for JavaScript/Node.js. It has no dependencies and can be used with virtually all testing frameworks.
+fn-tester is a tiny utility to record function calls and define test doubles for JavaScript/Node.js. It has no dependencies and can be used with virtually all testing frameworks.
 
 ## Installation
 
 ### Node.js
 
 ```bash
-npm install --save-dev fn-test
+npm install --save-dev fn-tester
 ```
 
 ### Browsers
 
-Install as above and use the `fn-test.js` file found in the node_modules directory:
+Install as above and use the `fn-tester.js` file found in the node_modules directory:
 
 ```html
-<script src="./node_modules/fn-test/fn-test.js"></script>
+<script src="./node_modules/fn-tester/fn-tester.js"></script>
 ```
 
 ## Usage
 
-fn-test is a simple as it gets. It has only three options and one method to use. Unlike many test double libraries, fn-test requires running functions indirectly by using a variation of the Command design pattern, which is necessary to intercept all function calls and preserve the value of "this".
+fn-tester is a simple as it gets. It has only three options and one method to use. Unlike many test double libraries, fn-tester requires running functions indirectly by using a variation of the Command design pattern, which is necessary to intercept all function calls and preserve the value of "this".
 
 ```js
-var fn = require('fn-test');
+var fn = require('fn-tester');
 
 // Instead of parentObj.methodName(argument1, argument2, ...), use:
 fn.run(parentObj, 'methodName', argument1, argument2, ...);
@@ -30,13 +30,13 @@ fn.run(parentObj, 'methodName', argument1, argument2, ...);
 fn.run(myFunction, null, argument1, argument2, ...);
 ```
 
-fn-test can be configured by simply changing the **test** property, and the defaults are:
+fn-tester can be configured by simply changing the **test** property, and the defaults are:
 
 ```js
 fn.test = { enabled: false, calls: [], doubles: [] };
 ```
 
-When **enabled** is true, fn-test starts to record function calls in **calls**. It also runs the test double functions stored in **doubles** (if any) instead of the originals.
+When **enabled** is true, fn-tester starts to record function calls in **calls**. It also runs the test double functions stored in **doubles** (if any) instead of the originals.
 
 Here is how to define test doubles for a simple user account creation controller:
 
@@ -87,7 +87,7 @@ fn.test = {
 fn.run(createUser, null, 'some@email', 'name', 'pass').then(() => console.log(fn.test.calls));
 ```
 
-When fn-test finds a function in **test.doubles** with the same name as the function called, runs the test double instead of the original. **test.calls** contains the function calls complete with the arguments passed.
+When fn-tester finds a function in **test.doubles** with the same name as the function called, runs the test double instead of the original. **test.calls** contains the function calls complete with the arguments passed.
 
 ```js
 [
@@ -100,10 +100,10 @@ When fn-test finds a function in **test.doubles** with the same name as the func
 
 **test.calls** is useful to determine if a function is called and has received the correct arguments.
 
-Finally, here is an example how fn-test can be used with Chai and Mocha:
+Finally, here is an example how fn-tester can be used with Chai and Mocha:
 
 ```js
-var fn = require('fn-test');
+var fn = require('fn-tester');
 var chai = require('chai');
 var chaiAsPromised = require('chai-as-promised');
 var should = chai.should();

@@ -1,4 +1,4 @@
-var fn = require('fn-test');
+var fn = require('fn-tester');
 var chai = require('chai');
 var chaiAsPromised = require('chai-as-promised');
 var should = chai.should();
