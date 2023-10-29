@@ -87,7 +87,7 @@ fn.test = {
 fn.run(createUser, null, 'some@email', 'name', 'pass').then(() => console.log(fn.test.calls));
 ```
 
-When fn-test finds a function **test.doubles** with the same name as the function called, runs the test double instead of the original. **test.calls** contains the function calls complete with the arguments used.
+When fn-test finds a function in **test.doubles** with the same name as the function called, runs the test double instead of the original. **test.calls** contains the function calls complete with the arguments passed.
 
 ```js
 [
@@ -98,9 +98,9 @@ When fn-test finds a function **test.doubles** with the same name as the functio
 ];
 ```
 
-**test.calls** is useful to determine if a function is called and passed the correct arguments.
+**test.calls** is useful to determine if a function is called and has received the correct arguments.
 
-Here is an example how fn-test can be used with Chai and Mocha:
+Finally, here is an example how fn-test can be used with Chai and Mocha:
 
 ```js
 var fn = require('fn-test');
