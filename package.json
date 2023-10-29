@@ -1,0 +1,23 @@
+{
+    "name": "fn-test",
+    "version": "1.0.0",
+    "description": "A tiny utility to record function calls and define test doubles.",
+    "main": "fn-test.js",
+    "scripts": {
+        "test": "mocha"
+    },
+    "keywords": [
+        "test",
+        "bdd",
+        "tdd",
+        "testing"
+    ],
+    "homepage": "https://github.com/aycangulez/fn-test",
+    "author": "Aycan Gulez",
+    "license": "MIT",
+    "devDependencies": {
+        "chai": "^4.3.10",
+        "chai-as-promised": "^7.1.1",
+        "mocha": "^10.2.0"
+    }
+}
