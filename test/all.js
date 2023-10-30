@@ -10,7 +10,7 @@ var userService = {
     },
 
     getUserByEmail: function (email) {
-        return db('user').where('email', email);
+        return db('user').where('email', email).then(_.head);
     },
 
     insertUser: function (email, name, password) {
