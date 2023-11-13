@@ -1,4 +1,4 @@
-module.exports = fn = {
+const fn = {
     test: { enabled: false, calls: [], doubles: [] }, // When enabled, function calls are recorded and doubles are used (if any)
     run: function () {
         const parentObj = arguments[0]; // To preserve 'this', we need the parent object
@@ -12,3 +12,6 @@ module.exports = fn = {
         return testDouble ? testDouble.apply(testDouble, argList) : func.apply(parentObj, argList); // Call test double if there is one or the original function
     },
 };
+try {
+    module.exports = exports = fn;
+} catch (e) {}

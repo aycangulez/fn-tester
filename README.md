@@ -30,6 +30,8 @@ fn.run(parentObj, 'methodName', argument1, argument2, ...);
 fn.run(myFunction, null, argument1, argument2, ...);
 ```
 
+It may be argued that changing all function calls isn’t simple at all, but there is no need to change every single function call. In a typical Model-View-Controller (MVC) application, modifying controller-level functions that deal with running multiple services should mostly be sufficient. Services that deal with databases and remote APIs need to have test doubles in any case.
+
 fn-tester can be configured by simply changing the **test** property, and the defaults are:
 
 ```js
