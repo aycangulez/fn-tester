@@ -130,15 +130,13 @@ describe('createUser', function () {
                 },
             ],
         };
-        await fn
-            .run(createUser, null, 'some@email', 'name', 'pass')
-            .then(() =>
-                fn.test.calls.should.be
-                    .an('array')
-                    .that.deep.includes(['getUserByEmail', 'some@email'])
-                    .and.that.deep.includes(['hashPassword', 'pass'])
-                    .and.that.deep.includes(['insertUser', 'some@email', 'name', 'hash'])
-            );
+
+        const result = await fn.run(createUser, null, 'some@email', 'name', 'pass');
+        fn.test.calls.should.be
+            .an('array')
+            .that.deep.includes(['getUserByEmail', 'some@email'])
+            .and.that.deep.includes(['hashPassword', 'pass'])
+            .and.that.deep.includes(['insertUser', 'some@email', 'name', 'hash']);
     });
 });
 ```
