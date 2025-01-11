@@ -21,7 +21,7 @@ Install as above and use the `fn-tester.js` file found in the node_modules direc
 fn-tester is a simple as it gets. It has only three options and one method to use. fn-tester requires running functions indirectly by using a variation of the Command design pattern, which is necessary to intercept all function calls and preserve the value of "this".
 
 ```js
-var fn = require('fn-tester');
+const fn = require('fn-tester');
 
 // Instead of parentObj.methodName(argument1, argument2, ...), use:
 fn.run(parentObj, 'methodName', argument1, argument2, ...);
@@ -45,7 +45,7 @@ Here is how to define test doubles for a simple user account creation controller
 ```js
 // (...)
 
-var userService = {
+const userService = {
     hashPassword: function (password) {
         return bcrypt.hash(password, 8);
     },
@@ -105,10 +105,10 @@ When fn-tester finds a function in **test.doubles** with the same name as the fu
 Finally, here is an example how fn-tester can be used with Chai and Mocha:
 
 ```js
-var fn = require('fn-tester');
-var chai = require('chai');
-var chaiAsPromised = require('chai-as-promised');
-var should = chai.should();
+const fn = require('fn-tester');
+const chai = require('chai');
+const chaiAsPromised = require('chai-as-promised');
+const should = chai.should();
 chai.use(chaiAsPromised).should();
 
 // (...)
